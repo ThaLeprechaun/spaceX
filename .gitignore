@@ -1,6 +1,9 @@
-#Typescript compiled files
-dist/
 
+#Typescript compiled file
+dist
+
+#dependencies
 node_modules
 
+#misc
 .vscode
