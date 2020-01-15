@@ -11,14 +11,14 @@ import rocketType from './types/rocket';
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
-  fields: {
+  fields: {  
     launches: {
       type: new GraphQLList(launchType),
       description: 'Get all rocket launch details',
       resolve() {
         return axios.get('https://api.spacexdata.com/v3/launches')
           .then(res => res.data);
-      }
+      }  
     },
     launch: {
       type: launchType,
@@ -26,7 +26,7 @@ const RootQuery = new GraphQLObjectType({
       args: {
         flight_number: {type: GraphQLInt}
       },
-      resolve(parent, args) {
+      resolve(_parent, args) {
         return axios.get(`https://api.spacexdata.com/v3/launches/${args.flight_number}`)
           .then(res => res.data);
       }
@@ -47,7 +47,7 @@ const RootQuery = new GraphQLObjectType({
           type: GraphQLInt
         }
       },
-      resolve(parent, args) {
+      resolve(_parent, args) {
         return axios.get(`https://api.spacexdata.com/v3/rockets/${args.rocket_id}`)
           .then(res => res.data);
       }

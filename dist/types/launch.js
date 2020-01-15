@@ -17,6 +17,10 @@ const launchType = new graphql_1.GraphQLObjectType({
             type: graphql_1.GraphQLString,
             description: 'Describes the year of launch'
         },
+        launch_date_local: {
+            type: graphql_1.GraphQLString,
+            description: 'Describes the year of launch'
+        },
         launch_success: {
             type: graphql_1.GraphQLBoolean,
             description: 'Describes the status of the flight'
